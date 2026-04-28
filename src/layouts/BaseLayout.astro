@@ -1,0 +1,22 @@
+---
+import { NAME, DESCRIPTION } from "../consts";
+import "../styles/main.css";
+import Header from "../components/Header.astro";
+const { title, description = DESCRIPTION } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
+    <title>{title} | {NAME}</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+</html>

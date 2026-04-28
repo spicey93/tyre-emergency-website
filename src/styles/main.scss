@@ -1,0 +1,5 @@
+$primary: #6f42c1; // Use PRIMARY from consts.ts
+$secondary: complement($primary); 
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";

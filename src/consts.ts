@@ -1,0 +1,14 @@
+export const NAME = "Company name";
+export const DESCRIPTION = "Company description";
+export const PHONE = "01234567890";
+export const EMAIL = "email@email.com";
+export const ADDRESS = "1 Example Road";
+export const CITY = "City";
+export const COUNTY = "Countyshire";
+export const POSTCODE = "EX14 PLE";
+export const VAT_NO = "GB123456789";
+export const COMPANY_NO = "12345678";
+export const FACEBOOK = "tyreemergencyltd"
+export const INSTAGRAM = "tyreemergencyltd"
+export const YOUTUBE = "@TyreEmergencyLtd"
+export const GMB = "p3hK2J8INUjzdzcZL"
