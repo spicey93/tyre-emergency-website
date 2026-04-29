@@ -1,7 +1,7 @@
 export const NAME = "Tyre Emergency Ltd";
 export const DESCRIPTION =
   "Stuck with a flat tyre? We'll come to you FAST - typically in 60 minutes or less. Based in Nottinghamshire. We operate 24 hours a day, 7 days a week.";
-export const PHONE = "0330 133 9311";
+export const PHONE = "01623 325 123";
 export const EMAIL = "contact@tyreemergency.com";
 export const ADDRESS = "Bilsthorpe";
 export const CITY = "Newark";

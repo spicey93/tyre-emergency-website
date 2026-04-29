@@ -1,6 +1,6 @@
 ---
 import TyreBrands from "./TyreBrands.astro";
-import { GOOGLE_RATING, GOOGLE_REVIEWS } from "../consts";
+import { GOOGLE_RATING, GOOGLE_REVIEWS, SERVICES } from "../consts";
 const {
   heroHeading = "Hero Heading",
   heroSubheading = "This is the Hero Subheading section. You can write an engaging sentence here to get a conversion.",
@@ -20,9 +20,9 @@ const {
       >
 
         <p class="display-3 fw-bold">{heroHeading}</p>
-        <p class="lead">{heroSubheading}</p>
+        <p class="lead fs-4">{heroSubheading}</p>
         <div class="mt-4">
-          <span class="border px-3 py-2 rounded-pill"
+          <span class="border px-3 py-2 rounded-pill bg-light text-dark"
             ><i class="text-warning bi bi-star-fill me-2"></i> Rated {GOOGLE_RATING} on Google
             from {GOOGLE_REVIEWS} reviews</span
           >
@@ -55,7 +55,11 @@ const {
             <div class="col-12">
               <label for="serviceType" class="form-label">Service Type</label>
               <select name="serviceType" id="serviceType" class="form-select"
-              ></select>
+              >
+              {SERVICES.map((serv) => (
+                <option value={serv.title}>{serv.title}</option>
+              ))}
+            </select>
             </div>
             <div class="col-12">
               <label for="message" class="form-label">Message</label>
@@ -63,7 +67,7 @@ const {
               ></textarea>
             </div>
             <div class="col-12 d-grid">
-              <button class="btn btn-primary text-light fw-bold"
+              <button class="btn btn-secondary fw-bold"
                 ><i class="bi bi-send-fill me-2"></i>Request Quote</button
               >
             </div>
