@@ -4,6 +4,7 @@
  * Copyright 2011-2025 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bangers&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -20314,4 +20315,8 @@ textarea.form-control-lg {
 
 .bi-globe-europe-africa-fill::before {
   content: "爛";
+}
+
+body {
+  font-family: "Asap", sans-serif;
 }/*# sourceMappingURL=main.css.map */

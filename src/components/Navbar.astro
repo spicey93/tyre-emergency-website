@@ -1,10 +1,10 @@
 ---
-import { NAME } from "../consts.ts";
+import { NAME, PHONE } from "../consts.ts";
 import { Image } from "astro:assets";
 import companyLogo from "../assets/logo.png";
 ---
 
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg py-4">
   <div class="container">
     <a class="navbar-brand" href="/">
       <Image src={companyLogo} class="navbar-logo" alt={`${NAME} logo`} />
@@ -21,7 +21,7 @@ import companyLogo from "../assets/logo.png";
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav mx-auto mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
@@ -39,6 +39,7 @@ import companyLogo from "../assets/logo.png";
         </li>
       </ul>
     </div>
+    <a href={`tel:${PHONE}`} class="btn btn-outline-primary btn-lg fw-bold d-none d-lg-block"><i class="bi bi-telephone-fill me-2"></i>{PHONE}</a>
   </div>
 </nav>
 

@@ -1,0 +1,101 @@
+---
+import TyreBrands from "./TyreBrands.astro";
+import { GOOGLE_RATING, GOOGLE_REVIEWS } from "../consts";
+const {
+  heroHeading = "Hero Heading",
+  heroSubheading = "This is the Hero Subheading section. You can write an engaging sentence here to get a conversion.",
+  bgImg = "/src/assets/images/tyre-emergency-ltd.jpeg",
+} = Astro.props;
+---
+
+<div
+  id="hero"
+  class="d-flex align-items-center text-lg-start"
+  style={`background-image: url('${bgImg}')`}
+>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-lg-6 my-5 text-light text-center text-lg-start d-flex flex-column justify-content-center"
+      >
+
+        <p class="display-3 fw-bold">{heroHeading}</p>
+        <p class="lead">{heroSubheading}</p>
+        <div class="mt-4">
+          <span class="border px-3 py-2 rounded-pill"
+            ><i class="text-warning bi bi-star-fill me-2"></i> Rated {GOOGLE_RATING} on Google
+            from {GOOGLE_REVIEWS} reviews</span
+          >
+        </div>
+      </div>
+      <div class="col mb-5 offset-lg-1 mt-lg-5">
+        <div class="bg-light p-5 rounded">
+          <p class="h3 mb-4">Get a Quote</p>
+          <form action="" method="post" class="row g-3">
+            <div class="col-12 col-lg-6">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Your Full Name"
+                id="fullName"
+                name="fullName"
+              />
+            </div>
+            <div class="col-12 col-lg-6">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="07123456789"
+                id="phone"
+                name="phone"
+              />
+            </div>
+            <div class="col-12">
+              <label for="serviceType" class="form-label">Service Type</label>
+              <select name="serviceType" id="serviceType" class="form-select"
+              ></select>
+            </div>
+            <div class="col-12">
+              <label for="message" class="form-label">Message</label>
+              <textarea name="message" id="message" class="form-control"
+              ></textarea>
+            </div>
+            <div class="col-12 d-grid">
+              <button class="btn btn-primary text-light fw-bold"
+                ><i class="bi bi-send-fill me-2"></i>Request Quote</button
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<TyreBrands />
+
+<style>
+  #hero {
+    min-height: 70vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  #hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+  }
+
+  #hero .container {
+    position: relative;
+    z-index: 2;
+  }
+</style>

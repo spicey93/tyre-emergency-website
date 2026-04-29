@@ -3,3 +3,8 @@ $secondary: complement($primary);
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bangers&display=swap');
+
+body {
+    font-family: 'Asap', sans-serif;
+}
