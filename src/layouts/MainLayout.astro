@@ -1,0 +1,11 @@
+---
+import { NAME, DESCRIPTION } from "../consts";
+import BaseLayout from "./BaseLayout.astro";
+const { title, description = DESCRIPTION } = Astro.props;
+---
+
+<BaseLayout title={`${title}`} description={description}>
+  <main class="container py-3">
+      <slot />
+  </main>
+</BaseLayout>

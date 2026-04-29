@@ -1,0 +1,18 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { SERVICES } from "../../consts";
+
+export function getStaticPaths() {
+    return SERVICES.map((service) => ({
+        params: {service: service.link},
+        props: { service }
+    }))
+}
+
+const { service } = Astro.props;
+const { title } = service;
+---
+
+<MainLayout title={title}>
+    <h1>{title}</h1>
+</MainLayout>

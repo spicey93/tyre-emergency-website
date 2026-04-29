@@ -2,6 +2,7 @@
 import { NAME, DESCRIPTION } from "../consts";
 import "../styles/main.css";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 const { title, description = DESCRIPTION } = Astro.props;
 ---
 
@@ -18,5 +19,7 @@ const { title, description = DESCRIPTION } = Astro.props;
   <body>
     <Header />
     <slot />
+    <Footer />
+    <script src="../scripts/bootstrap.min.js"></script>
   </body>
 </html>

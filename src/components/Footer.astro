@@ -1,0 +1,105 @@
+---
+import {
+  NAME,
+  DESCRIPTION,
+  PHONE,
+  EMAIL,
+  VAT_NO,
+  COMPANY_NO,
+  YEAR,
+  ADDRESS,
+  CITY,
+  COUNTY,
+  POSTCODE,
+} from "../consts.ts";
+import SocialLinks from "./SocialLinks.astro";
+import CTA from "./CTA.astro"
+import TyreBrands from "./TyreBrands.astro";
+---
+<TyreBrands />
+<CTA />
+<footer class="bg-dark text-light pt-4">
+  <div class="container pt-4 pb-3">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="mb-3">{NAME}</h5>
+        {DESCRIPTION && <p class="small mb-3">{DESCRIPTION}</p>}
+        <SocialLinks />
+      </div>
+
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h6 class="mb-3">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li>
+            <a href="/about" class="link-light text-decoration-none">About</a>
+          </li>
+          <li>
+            <a href="/services" class="link-light text-decoration-none"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="/areas" class="link-light text-decoration-none">Areas</a>
+          </li>
+          <li>
+            <a href="/contact" class="link-light text-decoration-none">Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h6 class="mb-3">Contact</h6>
+        <p class="small mb-0">{ADDRESS}, {CITY}, {COUNTY} {POSTCODE}</p>
+        <div class="small">
+          <a href={`tel:${PHONE}`} class="link-light text-decoration-none">
+            {PHONE}
+          </a><br />
+          <a href={`mailto:${EMAIL}`} class="link-light text-decoration-none">
+            {EMAIL}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-light opacity-10" />
+
+    <div
+      class="d-flex flex-column flex-md-row justify-content-between small align-items-center"
+    >
+      <div>© {YEAR} {NAME}. All rights reserved.</div>
+
+      <div class="small mt-2 mt-md-0">
+        VAT: {VAT_NO} • Company No: {COMPANY_NO}
+      </div>
+
+      <div class="mt-2 mt-md-0">
+        <a
+          href="https://tyredigital.co.uk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-light text-decoration-none d-inline-flex align-items-center"
+          aria-label="Tyre Digital website (opens in a new tab)"
+          title="Tyre Digital — opens in a new tab"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            class="me-2"
+            aria-hidden="true"
+            focusable="false"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="12" cy="12" r="7"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <span class="small">Website designed by Tyre Digital</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

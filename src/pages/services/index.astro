@@ -1,0 +1,23 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import { SERVICES } from "../../consts";
+const title = "Services";
+---
+
+<MainLayout title={title} description="About page description">
+  <h1 class="mb-3">{title}</h1>
+  <div class="row g-4">
+    {
+      SERVICES.map((serv) => (
+        <div class="col-12 col-md-6">
+          <ServiceCard
+            cardTitle={serv.title}
+            cardContent={serv.content}
+            cardLink={serv.link}
+          />
+        </div>
+      ))
+    }
+  </div>
+</MainLayout>
