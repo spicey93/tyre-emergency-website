@@ -11,12 +11,15 @@ const {
   mainHeading,
   mainContent,
 } = Astro.props;
+const mainParagraph = Array.isArray(mainContent)
+  ? mainContent.join(" ").trim()
+  : String(mainContent ?? "").trim();
 ---
 
 <BaseLayout title={`${title}`} description={description}>
   <Hero heroHeading={heroHeading} heroSubheading={heroSubheading} />
   <main class="container my-5">
     <h1>{mainHeading}</h1>
-    {mainContent.map((ptag:string) => <p class="lead">{ptag}</p>)}
+    {mainParagraph && <p class="lead">{mainParagraph}</p>}
   </main>
 </BaseLayout>
