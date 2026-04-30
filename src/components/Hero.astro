@@ -1,6 +1,6 @@
 ---
 import TyreBrands from "./TyreBrands.astro";
-import { GOOGLE_RATING, GOOGLE_REVIEWS, SERVICES, PHONE, ELFSIGHT_REVIEWS_ID } from "../consts";
+import { SERVICES, PHONE, ELFSIGHT_REVIEWS_ID, AREAS, GOOGLE_REVIEWS, GOOGLE_RATING } from "../consts";
 const {
   heroHeading = "Hero Heading",
   heroSubheading = "This is the Hero Subheading section. You can write an engaging sentence here to get a conversion.",
@@ -21,37 +21,42 @@ const {
         <p class="h1 fw-bold display-5">{heroHeading}</p>
         <p class="lead">{heroSubheading}</p>
         <div>
-          <a href={`tel:${PHONE}`} class="btn btn-secondary fw-bold btn-lg">Call us on <i class="bi bi-telephone-fill me-2"></i>{PHONE}</a>
+          <a href={`tel:${PHONE}`} class="btn btn-secondary fw-bold btn-lg my-3">Call us on <i class="bi bi-telephone-fill me-2"></i>{PHONE}</a>
+        </div>
+        <div class="my-3">
+          <span class="border px-3 py-2 rounded">
+            Rated <i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i> on Google from {GOOGLE_REVIEWS} reviews
+          </span>
         </div>
 
       </div>
       <div class="col mb-5 offset-lg-1 mt-lg-5">
-        <div class="bg-light p-5 rounded">
-          <p class="h3 mb-4">Get a Quote</p>
+        <div class="bg-light p-5 rounded m-3">
+          <p class="h3 mb-4 text-center">Get a Quote</p>
           <form action="" method="post" class="row g-3">
             <div class="col-12 col-lg-6">
-              <label for="fullName" class="form-label">Full Name</label>
               <input
                 type="text"
                 class="form-control"
-                placeholder="Your Full Name"
+                placeholder="Full Name"
                 id="fullName"
                 name="fullName"
+                required
               />
             </div>
             <div class="col-12 col-lg-6">
-              <label for="phone" class="form-label">Phone Number</label>
               <input
                 type="tel"
                 class="form-control"
-                placeholder="07123456789"
+                placeholder="Phone Number"
                 id="phone"
                 name="phone"
+                required
               />
             </div>
             <div class="col-12">
-              <label for="serviceType" class="form-label">Service Type</label>
-              <select name="serviceType" id="serviceType" class="form-select">
+              <select name="serviceType" id="serviceType" class="form-select" required>
+                <option value="">What service do you require?</option>
                 {
                   SERVICES.map((serv) => (
                     <option value={serv.title}>{serv.title}</option>
@@ -59,9 +64,18 @@ const {
                 }
               </select>
             </div>
+                        <div class="col-12">
+              <select name="area" id="area" class="form-select" required>
+                <option value="">What area are you in?</option>
+                {
+                  AREAS.map((area) => (
+                    <option value={area.name}>{area.name}</option>
+                  ))
+                }
+              </select>
+            </div>
             <div class="col-12">
-              <label for="message" class="form-label">Message</label>
-              <textarea name="message" id="message" class="form-control"
+              <textarea name="message" id="message" class="form-control" placeholder="Leave us a message"
               ></textarea>
             </div>
             <div class="col-12 d-grid">

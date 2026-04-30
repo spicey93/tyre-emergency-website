@@ -17,9 +17,28 @@ export const GMB = "UglmQxsSPUYKmNpQM";
 export const TIKTOK = "@tyreemergencyltd";
 export const YEAR = "2026";
 export const ELFSIGHT_REVIEWS_ID = "275ef231-cd13-4a92-b868-9f4af2dcaa8e";
+export const GOOGLE_REVIEWS = 458
+export const GOOGLE_RATING = 5.0
+export const AREAS = [
+  {
+    link: "mansfield",
+    title: "Car and Van Tyres in Mansfield",
+    name: "Mansfield",
+  },
+  {
+    link: "newark",
+    title: "Mobile Tyre Fitting in Newark",
+    name: "Newark",
+  },
+  {
+    link: "worksop",
+    title: "Mobile Tyre Fitting in Worksop",
+    name: "Worksop",
+  },
+];
 export const SERVICES = [
   {
-    link: "emergecy-tyre-replacement",
+    link: "emergency-tyre-replacement",
     title: "Emergency Tyre Replacement",
     cardContent:
       "Stranded with a flat tyre and need help urgently? We've got you. With an average ETA of 30 minutes, we are one of the fastest mobile tyre services in the UK.",
@@ -55,8 +74,6 @@ export const SERVICES = [
       "Faulty tyre pressure sensor? We can replace it today! Mobile fitting and programming available.",
   },
 ];
-export const GOOGLE_RATING = "5.0";
-export const GOOGLE_REVIEWS = "458";
 export const PAGES = {
   index: {
     title: "Home",
@@ -64,13 +81,6 @@ export const PAGES = {
     heroHeading: "Flat Tyre? Stranded Roadside?",
     heroSubheading:
       "Our emergency tyre fitters can come to you ASAP and get you back on the road. Get in touch with us today.",
-  },
-  services: {
-    title: "Services",
-    description:
-      "While we are known for our speedy emergency service, we do offer additional services such as locking wheel nut removal, caravan tyre replacement, and TPMS sensors.",
-    content:
-      "While we are known for our speedy emergency service, we do offer additional services such as locking wheel nut removal, caravan tyre replacement, and TPMS sensors.",
   },
   areas: {
     title: "Areas",
