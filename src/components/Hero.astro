@@ -1,6 +1,6 @@
 ---
 import TyreBrands from "./TyreBrands.astro";
-import { GOOGLE_RATING, GOOGLE_REVIEWS, SERVICES, PHONE } from "../consts";
+import { GOOGLE_RATING, GOOGLE_REVIEWS, SERVICES, PHONE, ELFSIGHT_REVIEWS_ID } from "../consts";
 const {
   heroHeading = "Hero Heading",
   heroSubheading = "This is the Hero Subheading section. You can write an engaging sentence here to get a conversion.",
@@ -18,8 +18,8 @@ const {
       <div
         class="col-lg-6 my-5 text-light text-center text-lg-start d-flex flex-column justify-content-center"
       >
-        <p class="h1 fw-bold">{heroHeading}</p>
-        <p class="lead fs-4">{heroSubheading}</p>
+        <p class="h1 fw-bold display-5">{heroHeading}</p>
+        <p class="lead">{heroSubheading}</p>
         <div>
           <a href={`tel:${PHONE}`} class="btn btn-secondary fw-bold btn-lg">Call us on <i class="bi bi-telephone-fill me-2"></i>{PHONE}</a>
         </div>
@@ -76,11 +76,11 @@ const {
   </div>
 </div>
 <TyreBrands />
-<!-- Elfsight All-in-One Reviews | Untitled All-in-One Reviews -->
- <div class="my-5">
+{ELFSIGHT_REVIEWS_ID &&  <div class="my-5">
    <script src="https://elfsightcdn.com/platform.js" async></script>
-   <div class="elfsight-app-275ef231-cd13-4a92-b868-9f4af2dcaa8e" data-elfsight-app-lazy></div>
- </div>
+   <div class=`elfsight-app-${ELFSIGHT_REVIEWS_ID}` data-elfsight-app-lazy></div>
+ </div>}
+
 
 <style>
   #hero {

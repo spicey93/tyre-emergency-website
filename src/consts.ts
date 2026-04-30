@@ -16,6 +16,7 @@ export const TWITTER = "tyre_emergency";
 export const GMB = "UglmQxsSPUYKmNpQM";
 export const TIKTOK = "@tyreemergencyltd";
 export const YEAR = "2026";
+export const ELFSIGHT_REVIEWS_ID = "275ef231-cd13-4a92-b868-9f4af2dcaa8e";
 export const SERVICES = [
   {
     link: "emergecy-tyre-replacement",
@@ -61,13 +62,15 @@ export const PAGES = {
     title: "Home",
     description: "",
     heroHeading: "Flat Tyre? Stranded Roadside?",
-    heroSubheading: "Our emergency tyre fitters can come to you ASAP and get you back on the road. Get in touch with us today.",
+    heroSubheading:
+      "Our emergency tyre fitters can come to you ASAP and get you back on the road. Get in touch with us today.",
   },
   services: {
     title: "Services",
     description:
       "While we are known for our speedy emergency service, we do offer additional services such as locking wheel nut removal, caravan tyre replacement, and TPMS sensors.",
-    content: "While we are known for our speedy emergency service, we do offer additional services such as locking wheel nut removal, caravan tyre replacement, and TPMS sensors.",
+    content:
+      "While we are known for our speedy emergency service, we do offer additional services such as locking wheel nut removal, caravan tyre replacement, and TPMS sensors.",
   },
   areas: {
     title: "Areas",
