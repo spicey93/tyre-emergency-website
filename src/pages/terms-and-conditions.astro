@@ -1,7 +1,114 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { NAME, EMAIL, PHONE, ADDRESS, CITY, COUNTY, POSTCODE, COMPANY_NO } from "../consts";
 ---
 
 <BaseLayout title="Terms and Conditions">
+  <main class="container my-5">
+    <h1>Terms and Conditions</h1>
+    <p class="lead">
+      These terms and conditions govern your use of this website and any booking or enquiry you make with {NAME}.
+      By using this website or requesting our services, you agree to these terms.
+    </p>
 
+    <section class="mt-4">
+      <h2>1. Company Information</h2>
+      <p>
+        {NAME} (Company No: {COMPANY_NO}) operates this website and provides mobile tyre services.
+      </p>
+      <p>
+        Registered service address: {ADDRESS}, {CITY}, {COUNTY} {POSTCODE}.
+      </p>
+      <p>
+        Contact: <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or <a href={`tel:${PHONE}`}>{PHONE}</a>.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>2. Services</h2>
+      <p>
+        We provide mobile and emergency tyre services, including fitting, replacement, puncture repair and related roadside support.
+        Service availability, response times and outcomes depend on location, traffic, weather, stock and vehicle condition.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>3. Quotes and Pricing</h2>
+      <ul>
+        <li>Quotes are provided based on the information you give us at the time of enquiry.</li>
+        <li>Final charges may vary if circumstances differ on arrival, including tyre size/specification or additional work required.</li>
+        <li>Unless stated otherwise, prices are in GBP and include applicable UK taxes.</li>
+      </ul>
+    </section>
+
+    <section class="mt-4">
+      <h2>4. Bookings and Cancellations</h2>
+      <p>
+        By booking a service, you confirm that you are authorised to request work on the vehicle and that the information supplied is accurate.
+      </p>
+      <ul>
+        <li>Please notify us promptly if you need to cancel or reschedule.</li>
+        <li>
+          Where a technician has already been dispatched, we may charge a reasonable call-out fee to cover time and travel costs.
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-4">
+      <h2>5. Customer Responsibilities</h2>
+      <ul>
+        <li>Provide a safe and legal location for work to be carried out.</li>
+        <li>Ensure we have clear access to the vehicle and wheel fixings.</li>
+        <li>Disclose known issues that may affect the service, including damage or missing parts.</li>
+      </ul>
+      <p>
+        We may refuse or pause service where safety concerns or legal restrictions apply.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>6. Payment</h2>
+      <p>
+        Payment is due when the service is completed unless otherwise agreed in writing. We may withhold release of the vehicle or related documentation
+        until payment is received.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>7. Warranty and Liability</h2>
+      <p>
+        We perform services with reasonable care and skill in line with UK consumer law. Nothing in these terms excludes or limits liability where it
+        would be unlawful to do so.
+      </p>
+      <ul>
+        <li>We are not responsible for delays caused by events outside our reasonable control.</li>
+        <li>
+          To the fullest extent permitted by law, we are not liable for indirect or consequential losses, including loss of income or business interruption.
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-4">
+      <h2>8. Website Use</h2>
+      <p>
+        Content on this website is provided for general information only. We may update, suspend or withdraw website content at any time without notice.
+        You must not misuse this site, attempt unauthorised access or use content in a way that infringes intellectual property rights.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>9. Governing Law</h2>
+      <p>
+        These terms are governed by the laws of England and Wales. Any dispute will be subject to the exclusive jurisdiction of the courts of England and Wales.
+      </p>
+    </section>
+
+    <section class="mt-4">
+      <h2>10. Changes to These Terms</h2>
+      <p>
+        We may update these terms from time to time. The latest version will always be published on this page.
+      </p>
+      <p class="mb-0"><strong>Last updated:</strong> 30 April 2026</p>
+    </section>
+  </main>
 </BaseLayout>

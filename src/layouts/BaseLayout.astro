@@ -3,7 +3,11 @@ import { NAME, DESCRIPTION } from "../consts";
 import "../styles/main.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CookieConsentBanner from "../components/CookieConsentBanner.astro";
 const { title, description = DESCRIPTION } = Astro.props;
+const pageTitle = `${title} | ${NAME}`;
+const canonicalUrl = Astro.url.href;
+const socialImage = new URL("/favicon.svg", Astro.url).href;
 ---
 
 <!doctype html>
@@ -13,13 +17,24 @@ const { title, description = DESCRIPTION } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
-    <title>{title} | {NAME}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <title>{pageTitle}</title>
   </head>
   <body>
     <Header />
     <slot />
     <Footer />
+    <CookieConsentBanner />
     <script src="../scripts/bootstrap.min.js"></script>
   </body>
 </html>

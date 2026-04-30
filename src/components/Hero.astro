@@ -33,7 +33,14 @@ const {
       <div class="col mb-5 offset-lg-1 mt-lg-5">
         <div class="bg-light p-5 rounded m-3">
           <p class="h3 mb-4 text-center">Get a Quote</p>
-          <form action="" method="post" class="row g-3">
+          <form class="row g-3" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="d-none">
+              <label>
+                Do not fill this out if you are human:
+                <input name="bot-field" />
+              </label>
+            </p>
             <div class="col-12 col-lg-6">
               <input
                 type="text"
