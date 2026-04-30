@@ -1,23 +1,26 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import ServiceCard from "../../components/ServiceCard.astro";
-import { SERVICES } from "../../consts";
-const title = "Services";
+import { SERVICES, PAGES } from "../../consts";
+const { services } = PAGES;
+const { title, description, content } = services;
 ---
 
-<MainLayout title={title} description="About page description">
-  <h1 class="mb-3">{title}</h1>
-  <div class="row g-4">
+<MainLayout title={title} description={description} content={content}>
+<div class="container">
+
+  <div class="row g-5 mb-5">
     {
       SERVICES.map((serv) => (
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 col-lg-4">
           <ServiceCard
             cardTitle={serv.title}
-            cardContent={serv.content}
+            cardContent={serv.cardContent}
             cardLink={serv.link}
           />
         </div>
       ))
     }
   </div>
+</div>
 </MainLayout>

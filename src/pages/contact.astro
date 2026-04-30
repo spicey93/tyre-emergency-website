@@ -1,9 +1,8 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-const title = "Contact"
+import { PAGES } from "../consts";
+const { contact } = PAGES;
+const { title, description, content } = contact;
 ---
 
-<MainLayout title={title} description="About page description">
-    <h1>{title}</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos dolor enim tenetur maiores illum nam doloremque error perferendis consequatur temporibus dolorum, porro velit, repellat dolorem qui officia ad consectetur architecto?</p>
-</MainLayout>
+<MainLayout title={title} description={description} content={content} />

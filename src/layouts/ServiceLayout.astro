@@ -1,12 +1,17 @@
 ---
-import { NAME, DESCRIPTION } from "../consts";
+import { DESCRIPTION } from "../consts";
 import BaseLayout from "./BaseLayout.astro";
 import Hero from "../components/Hero.astro";
-const { title, description = DESCRIPTION } = Astro.props;
+const {
+  title,
+  description = DESCRIPTION,
+  heroHeading,
+  heroSubheading,
+} = Astro.props;
 ---
 
 <BaseLayout title={`${title}`} description={description}>
-  <Hero />
+  <Hero heroHeading={heroHeading} heroSubheading={heroSubheading} />
   <main class="container py-3">
     <slot />
   </main>
