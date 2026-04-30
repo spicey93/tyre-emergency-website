@@ -19,6 +19,7 @@ export const YEAR = "2026";
 export const ELFSIGHT_REVIEWS_ID = "275ef231-cd13-4a92-b868-9f4af2dcaa8e";
 export const GOOGLE_REVIEWS = 458;
 export const GOOGLE_RATING = 5.0;
+export const GOOGLE_TAG_MANAGER_ID = "GTM-PMBVFQCG";
 export const AREAS = [
   {
     link: "mansfield",
