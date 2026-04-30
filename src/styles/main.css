@@ -4,7 +4,7 @@
  * Copyright 2011-2025 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -20318,9 +20318,9 @@ textarea.form-control-lg {
 }
 
 body {
-  font-family: "Asap", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Bangers", "sans-serif";
+  text-transform: uppercase;
 }/*# sourceMappingURL=main.css.map */

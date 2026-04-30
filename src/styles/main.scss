@@ -3,12 +3,13 @@ $secondary: complement($primary);
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
-@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 body {
-    font-family: 'Asap', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Bangers', 'sans-serif';
+    // font-family: 'Bungee', 'sans-serif';
+    text-transform: uppercase;
 }
