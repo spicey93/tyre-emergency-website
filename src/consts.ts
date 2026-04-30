@@ -136,7 +136,7 @@ export const PAGES = {
     title: "Home",
     description:
       "Need a tyre urgently? Call Tyre Emergency Ltd for 24/7 emergency roadside tyre service, a 30-minute average ETA and REACT-licensed support across Nottinghamshire.",
-    heroHeading: "Need Emergency Tyre Help in Nottinghamshire?",
+    heroHeading: "Flat Tyre? Call Us Now",
     heroSubheading:
       "Call Tyre Emergency Ltd for 24/7 roadside tyre replacement, mobile fitting and puncture repair with a 30-minute average ETA.",
     mainHeading: "Fast, expert tyre rescue when you need it most",
