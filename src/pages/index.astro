@@ -1,11 +1,14 @@
 ---
 import ServiceLayout from "../layouts/ServiceLayout.astro";
 import { PAGES } from "../consts";
-const { title, description, heroHeading, heroSubheading } = PAGES.index;
+const { title, description, heroHeading, heroSubheading, mainHeading, mainContent } = PAGES.index;
 ---
 
 <ServiceLayout
   title={title}
+  description={description}
   heroHeading={heroHeading}
   heroSubheading={heroSubheading}
-/>
+  mainHeading={mainHeading}
+  mainContent={mainContent}
+</ServiceLayout>

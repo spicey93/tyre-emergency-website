@@ -7,12 +7,15 @@ const {
   description = DESCRIPTION,
   heroHeading,
   heroSubheading,
+  mainHeading,
+  mainContent,
 } = Astro.props;
 ---
 
 <BaseLayout title={`${title}`} description={description}>
   <Hero heroHeading={heroHeading} heroSubheading={heroSubheading} />
   <main class="container py-3">
-    <slot />
+    <h1>{mainHeading}</h1>
+    {mainContent.map((ptag:string) => <p>{ptag}</p>)}
   </main>
 </BaseLayout>
