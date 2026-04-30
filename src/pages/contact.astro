@@ -1,8 +1,130 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { PAGES } from "../consts";
+import { PAGES, PHONE, EMAIL, AREAS, SERVICES, GOOGLE_RATING, GOOGLE_REVIEWS } from "../consts";
 const { contact } = PAGES;
 const { title, description, content } = contact;
 ---
 
-<MainLayout title={title} description={description} content={content} />
+<MainLayout title={title} description={description} content={content}>
+  <section class="container pb-5">
+    <div class="row g-4">
+      <div class="col-12 col-lg-7">
+        <div class="card border h-100">
+          <div class="card-body p-4 p-lg-5">
+            <h2 class="h4 mb-3">Get Help Fast</h2>
+            <p class="mb-4">
+              Call now for emergency tyre rescue or send us your details and we will call you back quickly.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
+              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE}`}>
+                <i class="bi bi-telephone-fill me-2"></i>Call {PHONE}
+              </a>
+              <a class="btn btn-outline-primary btn-lg fw-bold" href={`mailto:${EMAIL}`}>
+                <i class="bi bi-envelope-fill me-2"></i>Email Us
+              </a>
+            </div>
+            <div class="bg-light rounded p-3">
+              <p class="mb-1 fw-semibold">Trusted by local drivers</p>
+              <p class="mb-0">
+                Rated {GOOGLE_RATING} stars from {GOOGLE_REVIEWS}+ Google reviews.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5">
+        <div class="card border h-100">
+          <div class="card-body p-4 p-lg-5">
+            <h2 class="h5 mb-3">Contact Details</h2>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                <a href={`tel:${PHONE}`} class="text-decoration-none">{PHONE}</a>
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                <a href={`mailto:${EMAIL}`} class="text-decoration-none">{EMAIL}</a>
+              </li>
+              <li>
+                <i class="bi bi-clock-fill me-2 text-primary"></i>
+                Open 24 hours, 7 days a week
+              </li>
+            </ul>
+            <h3 class="h6 mb-2">Areas We Cover</h3>
+            <p class="mb-0">
+              {AREAS.map((area) => area.name).join(", ")} and surrounding parts of Nottinghamshire.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card border">
+          <div class="card-body p-4 p-lg-5">
+            <h2 class="h4 mb-3">Request a Quote</h2>
+            <p class="mb-4">
+              Fill in the form and we will respond as soon as possible with pricing and availability.
+            </p>
+            <form class="row g-3" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="d-none">
+                <label>
+                  Do not fill this out if you are human:
+                  <input name="bot-field" />
+                </label>
+              </p>
+              <div class="col-12 col-md-6">
+                <label class="form-label" for="fullName">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" required />
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required />
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required />
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label" for="serviceType">Service Needed</label>
+                <select name="serviceType" id="serviceType" class="form-select" required>
+                  <option value="">Select a service</option>
+                  {
+                    SERVICES.map((service) => (
+                      <option value={service.title}>{service.title}</option>
+                    ))
+                  }
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="area">Your Area</label>
+                <select name="area" id="area" class="form-select" required>
+                  <option value="">Select your area</option>
+                  {
+                    AREAS.map((area) => (
+                      <option value={area.name}>{area.name}</option>
+                    ))
+                  }
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="message">How can we help?</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Tell us your tyre size, vehicle and situation."
+                ></textarea>
+              </div>
+              <div class="col-12 d-grid d-sm-flex justify-content-sm-end">
+                <button class="btn btn-primary fw-bold px-4 text-light" type="submit">
+                  <i class="bi bi-send-fill me-2"></i>Send Enquiry
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

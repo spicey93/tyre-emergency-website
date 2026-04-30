@@ -1,10 +1,114 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { PAGES } from "../consts";
+import {
+  PAGES,
+  NAME,
+  PHONE,
+  EMAIL,
+  AREAS,
+  SERVICES,
+  GOOGLE_RATING,
+  GOOGLE_REVIEWS,
+} from "../consts";
 const { about } = PAGES;
 const { title, description, content } = about;
 ---
 
 <MainLayout title={title} description={description} content={content}>
+  <section class="container pb-5">
+    <div class="row g-4">
+      <div class="col-12 col-lg-8">
+        <div class="card border h-100">
+          <div class="card-body p-4 p-lg-5">
+            <h2 class="h4 mb-3">Who We Are</h2>
+            <p class="mb-3">
+              We are a Nottinghamshire-based mobile tyre team helping drivers, families and businesses stay moving with
+              reliable on-site support day and night.
+            </p>
+            <p class="mb-0">
+              From urgent roadside tyre emergencies to planned mobile fittings at home or work, {NAME} is built
+              around one goal: getting drivers back on the road quickly and safely.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card border h-100">
+          <div class="card-body p-4 p-lg-5">
+            <h2 class="h5 mb-3">At a Glance</h2>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2">
+                <i class="bi bi-clock-fill me-2 text-primary"></i>
+                24 hours a day, 7 days a week
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-star-fill me-2 text-primary"></i>
+                Rated {GOOGLE_RATING} from {GOOGLE_REVIEWS}+ Google reviews
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-tools me-2 text-primary"></i>
+                {SERVICES.length} specialist mobile tyre services
+              </li>
+              <li>
+                <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                Covering {AREAS.map((area) => area.name).join(", ")}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card border">
+          <div class="card-body p-4 p-lg-5">
+            <h2 class="h4 mb-3">Why Drivers Choose Us</h2>
+            <div class="row g-3">
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="bg-light rounded p-3 h-100">
+                  <h3 class="h6 mb-2">Fast Response</h3>
+                  <p class="mb-0">Our emergency-first approach targets a 30-minute average ETA in core service areas.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="bg-light rounded p-3 h-100">
+                  <h3 class="h6 mb-2">Mobile Convenience</h3>
+                  <p class="mb-0">We come to your home, workplace or roadside location with fully equipped service vans.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="bg-light rounded p-3 h-100">
+                  <h3 class="h6 mb-2">Safety First</h3>
+                  <p class="mb-0">Every job includes professional fitting checks and clear advice before you continue.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="bg-light rounded p-3 h-100">
+                  <h3 class="h6 mb-2">Honest Service</h3>
+                  <p class="mb-0">We explain your options clearly and only recommend work that is needed and safe.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card border">
+          <div class="card-body p-4 p-lg-5">
+            <h2 class="h4 mb-3">Speak to Our Team</h2>
+            <p class="mb-4">
+              Need urgent help now, or want advice before booking? Call or email and we will guide you to the right service.
+            </p>
+            <div class="d-flex flex-column flex-sm-row gap-3">
+              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE}`}>
+                <i class="bi bi-telephone-fill me-2"></i>Call {PHONE}
+              </a>
+              <a class="btn btn-outline-primary btn-lg fw-bold" href={`mailto:${EMAIL}`}>
+                <i class="bi bi-envelope-fill me-2"></i>Email Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </MainLayout>
 
