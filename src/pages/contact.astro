@@ -64,7 +64,14 @@ const { title, description, content } = contact;
             <p class="mb-4">
               Fill in the form and we will respond as soon as possible with pricing and availability.
             </p>
-            <form class="row g-3" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <form
+              class="row g-3"
+              name="contact"
+              method="POST"
+              action="/thank-you"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+            >
               <input type="hidden" name="form-name" value="contact" />
               <p class="d-none">
                 <label>
@@ -74,15 +81,38 @@ const { title, description, content } = contact;
               </p>
               <div class="col-12 col-md-6">
                 <label class="form-label" for="fullName">Full Name</label>
-                <input type="text" class="form-control" id="fullName" name="fullName" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  name="fullName"
+                  autocomplete="name"
+                  required
+                />
               </div>
               <div class="col-12 col-md-6">
                 <label class="form-label" for="phone">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" name="phone" required />
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                  inputmode="tel"
+                  required
+                />
               </div>
               <div class="col-12 col-md-6">
                 <label class="form-label" for="email">Email Address</label>
-                <input type="email" class="form-control" id="email" name="email" required />
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  required
+                />
               </div>
               <div class="col-12 col-md-6">
                 <label class="form-label" for="serviceType">Service Needed</label>
@@ -113,6 +143,7 @@ const { title, description, content } = contact;
                   id="message"
                   class="form-control"
                   rows="4"
+                  autocomplete="off"
                   placeholder="Tell us your tyre size, vehicle and situation."
                 ></textarea>
               </div>

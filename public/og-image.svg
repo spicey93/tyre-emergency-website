@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Tyre Emergency Ltd</title>
+  <desc id="desc">24/7 emergency tyre rescue and mobile fitting in Nottinghamshire.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="980" cy="315" r="190" fill="#1f2937" />
+  <circle cx="980" cy="315" r="115" fill="#0f172a" stroke="#facc15" stroke-width="22" />
+  <circle cx="980" cy="315" r="28" fill="#facc15" />
+  <text x="90" y="235" fill="#f9fafb" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">
+    Tyre Emergency Ltd
+  </text>
+  <text x="90" y="310" fill="#f9fafb" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="600">
+    24/7 Emergency Tyre Rescue
+  </text>
+  <text x="90" y="372" fill="#d1d5db" font-family="Arial, Helvetica, sans-serif" font-size="36">
+    Mobile fitting across Nottinghamshire
+  </text>
+  <text x="90" y="464" fill="#facc15" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">
+    Fast local response " Trusted 5.0 Google rating
+  </text>
+</svg>

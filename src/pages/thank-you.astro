@@ -1,0 +1,36 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { PHONE, EMAIL } from "../consts";
+---
+
+<MainLayout
+  title="Thank You"
+  description="Thanks for contacting Tyre Emergency Ltd. We have received your enquiry and will respond shortly."
+  content="Your enquiry has been sent successfully."
+>
+  <section class="container pb-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="card border">
+          <div class="card-body p-4 p-lg-5 text-center">
+            <h2 class="h4 mb-3">Thanks, we have received your enquiry</h2>
+            <p class="mb-4">
+              A member of our team will contact you as soon as possible with pricing and availability.
+            </p>
+            <p class="mb-4">
+              Need urgent help right now? Call us for immediate roadside support.
+            </p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE}`}>
+                <i class="bi bi-telephone-fill me-2"></i>Call {PHONE}
+              </a>
+              <a class="btn btn-outline-primary btn-lg fw-bold" href={`mailto:${EMAIL}`}>
+                <i class="bi bi-envelope-fill me-2"></i>Email Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
