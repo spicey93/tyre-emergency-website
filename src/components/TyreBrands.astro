@@ -1,5 +1,4 @@
 ---
-// TyreBrands.astro
 import bridgestone from "../assets/tyre-brands/bridgestone.jpg";
 import continental from "../assets/tyre-brands/continental.jpg";
 import dunlop from "../assets/tyre-brands/dunlop.jpg";
@@ -22,11 +21,9 @@ const brands = [
 ---
 
 <section class="py-4 bg-light border-bottom">
-  <!-- <div class="container"> -->
   <div class="carousel-container">
     <div class="carousel-track">
       {
-        // Duplicate the brands array twice for seamless infinite loop
         [...brands, ...brands].map((brand) => (
           <div class="brand-item">
             <img src={brand.src.src} alt={`${brand.name} tyres`} />
@@ -35,7 +32,6 @@ const brands = [
       }
     </div>
   </div>
-  <!-- </div> -->
 </section>
 
 <style>

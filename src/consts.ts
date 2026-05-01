@@ -19,17 +19,6 @@ export const YEAR = "2026";
 export const ELFSIGHT_REVIEWS_ID = "275ef231-cd13-4a92-b868-9f4af2dcaa8e";
 export const GOOGLE_REVIEWS = 458;
 export const GOOGLE_RATING = 5.0;
-export const GOOGLE_TAG_MANAGER_ID = "GTM-PMBVFQCG";
-/** Google Ads account (gtag.js); used with form conversion below. */
-export const GOOGLE_ADS_MEASUREMENT_ID = "AW-11452319086";
-/** Google Ads “Form submission” conversion: account/label from Google Ads. */
-export const GOOGLE_ADS_FORM_CONVERSION_SEND_TO =
-  "AW-11452319086/Ov4fCPqK16UcEO6K8tQq";
-/** Google Ads “Click to call” conversion. */
-export const GOOGLE_ADS_PHONE_CONVERSION_SEND_TO =
-  "AW-11452319086/X7sMCP2K16UcEO6K8tQq";
-export const GOOGLE_ADS_PHONE_CONVERSION_VALUE = 1.0;
-export const GOOGLE_ADS_PHONE_CONVERSION_CURRENCY = "GBP";
 export const AREAS = [
   {
     link: "mansfield",
