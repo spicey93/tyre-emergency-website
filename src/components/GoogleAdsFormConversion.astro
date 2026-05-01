@@ -1,0 +1,200 @@
+---
+import {
+  GOOGLE_ADS_MEASUREMENT_ID,
+  GOOGLE_ADS_FORM_CONVERSION_SEND_TO,
+  GOOGLE_ADS_PHONE_CONVERSION_SEND_TO,
+  GOOGLE_ADS_PHONE_CONVERSION_VALUE,
+  GOOGLE_ADS_PHONE_CONVERSION_CURRENCY,
+} from "../consts";
+---
+
+<script
+  is:inline
+  define:vars={{
+    GOOGLE_ADS_MEASUREMENT_ID,
+    GOOGLE_ADS_FORM_CONVERSION_SEND_TO,
+    GOOGLE_ADS_PHONE_CONVERSION_SEND_TO,
+    GOOGLE_ADS_PHONE_CONVERSION_VALUE,
+    GOOGLE_ADS_PHONE_CONVERSION_CURRENCY,
+  }}
+>
+  (function () {
+    var adsId = GOOGLE_ADS_MEASUREMENT_ID;
+    var sendToForm = GOOGLE_ADS_FORM_CONVERSION_SEND_TO;
+    var sendToPhone = GOOGLE_ADS_PHONE_CONVERSION_SEND_TO;
+    var phoneValue = GOOGLE_ADS_PHONE_CONVERSION_VALUE;
+    var phoneCurrency = GOOGLE_ADS_PHONE_CONVERSION_CURRENCY;
+    var gtagLoadPromise = null;
+
+    function hasMarketingConsent() {
+      return Boolean(window.__cookieConsent && window.__cookieConsent.marketing);
+    }
+
+    function ensureGtag() {
+      if (typeof window.gtag === "function") {
+        return Promise.resolve();
+      }
+      if (gtagLoadPromise) {
+        return gtagLoadPromise;
+      }
+      gtagLoadPromise = new Promise(function (resolve, reject) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag("js", new Date());
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(adsId);
+        s.onload = function () {
+          window.gtag("config", adsId);
+          resolve();
+        };
+        s.onerror = function () {
+          reject(new Error("gtag load failed"));
+        };
+        document.head.appendChild(s);
+      });
+      return gtagLoadPromise;
+    }
+
+    function fireConversionEvent(sendTo, extras, onDone) {
+      ensureGtag()
+        .then(function () {
+          var payload = {
+            send_to: sendTo,
+            event_callback: onDone,
+          };
+          if (extras) {
+            if (typeof extras.value === "number") {
+              payload.value = extras.value;
+            }
+            if (extras.currency) {
+              payload.currency = extras.currency;
+            }
+          }
+          window.gtag("event", "conversion", payload);
+        })
+        .catch(onDone);
+    }
+
+    /**
+     * Form submission conversion (Google Ads). Pass url to navigate after the hit is sent.
+     */
+    window.gtag_report_conversion = function (url) {
+      if (!hasMarketingConsent()) {
+        if (typeof url !== "undefined") {
+          window.location = url;
+        }
+        return false;
+      }
+      fireConversionEvent(sendToForm, null, function () {
+        if (typeof url !== "undefined") {
+          window.location = url;
+        }
+      });
+      return false;
+    };
+
+    /**
+     * Click-to-call conversion with value/currency (Google Ads). Pass tel: or other url to open after the hit is sent.
+     */
+    window.gtag_report_phone_conversion = function (url) {
+      if (!hasMarketingConsent()) {
+        if (typeof url !== "undefined") {
+          window.location = url;
+        }
+        return false;
+      }
+      fireConversionEvent(
+        sendToPhone,
+        { value: phoneValue, currency: phoneCurrency },
+        function () {
+          if (typeof url !== "undefined") {
+            window.location = url;
+          }
+        }
+      );
+      return false;
+    };
+
+    function wireContactForm(form) {
+      form.addEventListener("submit", function (e) {
+        if (!hasMarketingConsent()) {
+          return;
+        }
+        e.preventDefault();
+        var fallbackMs = 2000;
+        var finished = false;
+        var finish = function () {
+          if (finished) {
+            return;
+          }
+          finished = true;
+          form.submit();
+        };
+        var t = window.setTimeout(finish, fallbackMs);
+        fireConversionEvent(sendToForm, null, function () {
+          window.clearTimeout(t);
+          finish();
+        });
+      });
+    }
+
+    function wireTelLinks() {
+      document.addEventListener(
+        "click",
+        function (e) {
+          if (e.defaultPrevented || e.button !== 0) {
+            return;
+          }
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+            return;
+          }
+          var t = e.target;
+          var a = t.closest && t.closest("a[href^='tel:']");
+          if (!a || !a.href) {
+            return;
+          }
+          if (!hasMarketingConsent()) {
+            return;
+          }
+          e.preventDefault();
+          var href = a.href;
+          var fallbackMs = 2000;
+          var finished = false;
+          var go = function () {
+            if (finished) {
+              return;
+            }
+            finished = true;
+            window.location.href = href;
+          };
+          var timer = window.setTimeout(go, fallbackMs);
+          fireConversionEvent(
+            sendToPhone,
+            { value: phoneValue, currency: phoneCurrency },
+            function () {
+              window.clearTimeout(timer);
+              go();
+            }
+          );
+        },
+        true
+      );
+    }
+
+    function init() {
+      document.querySelectorAll('form[name="contact"]').forEach(function (form) {
+        wireContactForm(form);
+      });
+      wireTelLinks();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+</script>

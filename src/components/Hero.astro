@@ -1,10 +1,12 @@
 ---
 import TyreBrands from "./TyreBrands.astro";
 import { SERVICES, PHONE, AREAS, GOOGLE_REVIEWS } from "../consts";
+import defaultHeroBg from "../assets/images/tyre-emergency-ltd.jpeg";
+
 const {
   heroHeading = "Hero Heading",
   heroSubheading = "This is the Hero Subheading section. You can write an engaging sentence here to get a conversion.",
-  bgImg = "/src/assets/images/tyre-emergency-ltd.jpeg",
+  bgImg = defaultHeroBg.src,
 } = Astro.props;
 ---
 
