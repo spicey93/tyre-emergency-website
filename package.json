@@ -11,10 +11,13 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "devDependencies": {
+    "sass": "^1.93.2"
+  },
   "dependencies": {
+    "@fontsource/rubik": "^5.2.8",
     "astro": "^6.1.9",
     "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1",
-    "scss": "^0.2.4"
+    "bootstrap-icons": "^1.13.1"
   }
 }

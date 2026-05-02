@@ -1,0 +1,82 @@
+// Trimmed Bootstrap: only components and utilities used on this site.
+// Paths are relative to this file (`src/styles/`).
+
+@import "../../node_modules/bootstrap/scss/functions";
+
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/card";
+
+@import "../../node_modules/bootstrap/scss/helpers";
+
+// Drop rarely used utility groups to shrink CSS (see Bootstrap _utilities.scss keys).
+$utilities: map-remove(
+  $utilities,
+  "align",
+  "float",
+  "object-fit",
+  "viewport-width",
+  "min-viewport-width",
+  "viewport-height",
+  "min-viewport-height",
+  "translate-middle",
+  "overflow",
+  "overflow-x",
+  "overflow-y",
+  "position",
+  "top",
+  "bottom",
+  "start",
+  "end",
+  "font-size",
+  "font-style",
+  "line-height",
+  "gradient",
+  "order",
+  "flex-grow",
+  "flex-shrink",
+  "negative-margin",
+  "negative-margin-x",
+  "negative-margin-y",
+  "negative-margin-top",
+  "negative-margin-end",
+  "negative-margin-bottom",
+  "negative-margin-start",
+  "row-gap",
+  "column-gap",
+  "link-opacity",
+  "link-offset",
+  "link-underline",
+  "link-underline-opacity",
+  "user-select",
+  "pointer-events",
+  "visibility",
+  "z-index",
+  "word-wrap",
+  "max-width",
+  "width",
+  "max-height",
+  "text-opacity",
+  "bg-opacity",
+  "border-opacity",
+  "subtle-border-color",
+  "subtle-background-color",
+  "focus-ring"
+);
+
+@import "../../node_modules/bootstrap/scss/utilities/api";
