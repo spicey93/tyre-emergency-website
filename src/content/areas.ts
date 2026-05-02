@@ -15,6 +15,32 @@ export const AREAS: Area[] = [
     name: "Blyth",
   },
   {
+    link: "chesterfield",
+    heroHeading: "24/7 Mobile Tyre Services in Chesterfield",
+    heroSubheading:
+      "Emergency tyre replacement, puncture repair and mobile fitting in Chesterfield with a 30-minute average ETA.",
+    mainHeading: "Tyre Services in Chesterfield",
+    mainContent:
+      "Chesterfield drivers trust Tyre Emergency Ltd for 24/7 emergency tyre replacement, mobile tyre fitting, puncture repair and locking wheel nut removal with a 30-minute average ETA across Derbyshire and the Peak fringe, so if a flat tyre or blowout stops you in town, on the M1 corridor or nearby, call our team for fast, safe roadside support.",
+    description:
+      "24/7 emergency tyre rescue and mobile tyre fitting in Chesterfield by Tyre Emergency Ltd. Fast response, expert on-site service.",
+    title: "Mobile Tyre Fitting in Chesterfield",
+    name: "Chesterfield",
+  },
+  {
+    link: "doncaster",
+    heroHeading: "24/7 Mobile Tyre Services in Doncaster",
+    heroSubheading:
+      "Urgent roadside tyre replacement, puncture repair and mobile fitting in Doncaster with rapid local response.",
+    mainHeading: "Tyre Services in Doncaster",
+    mainContent:
+      "Doncaster motorists rely on Tyre Emergency Ltd for 24/7 emergency tyre replacement, mobile tyre fitting, puncture repair and locking wheel nut removal with a 30-minute average ETA across South Yorkshire and the wider region, so if a flat tyre or blowout stops your journey, call now for rapid on-site recovery.",
+    description:
+      "Emergency mobile tyre support in Doncaster, South Yorkshire. 24/7 on-site tyre rescue, repair and fitting when you're stuck.",
+    title: "Mobile Tyre Fitting in Doncaster",
+    name: "Doncaster",
+  },
+  {
     link: "grantham",
     heroHeading: "24/7 Mobile Tyre Services in Grantham",
     heroSubheading:
