@@ -1,21 +1,36 @@
 ---
-import { FACEBOOK, INSTAGRAM, YOUTUBE, GMB } from "../consts.ts"
-const social = {
-    facebook: `https://www.facebook.com/${FACEBOOK}`,
-    instagram: `https://www.instagram.com/${INSTAGRAM}`,
-    youtube: `https://www.youtube.com/${YOUTUBE}`,
-    googleMyBusiness: `https://share.google/${GMB}`
-}
+import {
+  FACEBOOK,
+  INSTAGRAM,
+  YOUTUBE,
+  GMB,
+  TWITTER,
+  TIKTOK,
+} from "../consts";
 
-const socialIcons = {
+const twitterHandle = TWITTER.replace(/^@/, "");
+const tiktokHandle = TIKTOK.startsWith("@") ? TIKTOK : `@${TIKTOK}`;
+
+const social: Record<string, string> = {};
+if (FACEBOOK) social.facebook = `https://www.facebook.com/${FACEBOOK}`;
+if (INSTAGRAM) social.instagram = `https://www.instagram.com/${INSTAGRAM}`;
+if (YOUTUBE) social.youtube = `https://www.youtube.com/${YOUTUBE}`;
+if (GMB) social.googleMyBusiness = `https://share.google/${GMB}`;
+if (twitterHandle)
+  social.twitter = `https://x.com/${twitterHandle}`;
+if (TIKTOK) social.tiktok = `https://www.tiktok.com/${tiktokHandle}`;
+
+const socialIcons: Record<string, string> = {
   facebook: "facebook",
   instagram: "instagram",
   youtube: "youtube",
   googleMyBusiness: "google",
+  twitter: "twitter-x",
+  tiktok: "tiktok",
 };
 
-const links = Object.entries(social || {}).filter(
-  ([_, url]) => url && url !== "#"
+const links = Object.entries(social).filter(
+  ([_, url]) => url && url !== "#",
 );
 ---
 

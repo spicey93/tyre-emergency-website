@@ -11,7 +11,8 @@ import {
   CITY,
   COUNTY,
   POSTCODE,
-} from "../consts.ts";
+  DESIGNER_CREDIT,
+} from "../consts";
 import SocialLinks from "./SocialLinks.astro";
 import CTA from "./CTA.astro";
 ---
@@ -80,33 +81,37 @@ import CTA from "./CTA.astro";
         VAT: {VAT_NO} • Company No: {COMPANY_NO}
       </div>
 
-      <div class="mt-2 mt-md-0">
-        <a
-          href="https://tyredigital.co.uk"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="link-light text-decoration-none d-inline-flex align-items-center"
-          aria-label="Tyre Digital website (opens in a new tab)"
-          title="Tyre Digital — opens in a new tab"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            class="me-2"
-            aria-hidden="true"
-            focusable="false"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <circle cx="12" cy="12" r="7"></circle>
-            <circle cx="12" cy="12" r="3"></circle>
-          </svg>
-          <span class="small">Website designed by Tyre Digital</span>
-        </a>
-      </div>
+      {
+        DESIGNER_CREDIT && (
+          <div class="mt-2 mt-md-0">
+            <a
+              href={DESIGNER_CREDIT.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-light text-decoration-none d-inline-flex align-items-center"
+              aria-label={DESIGNER_CREDIT.ariaLabel}
+              title={DESIGNER_CREDIT.title}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                class="me-2"
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="12" cy="12" r="7" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              <span class="small">{DESIGNER_CREDIT.label}</span>
+            </a>
+          </div>
+        )
+      }
     </div>
   </div>
 </footer>

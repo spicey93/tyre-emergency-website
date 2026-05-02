@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import bridgestone from "../assets/tyre-brands/bridgestone.jpg";
 import continental from "../assets/tyre-brands/continental.jpg";
 import dunlop from "../assets/tyre-brands/dunlop.jpg";
@@ -26,7 +27,7 @@ const brands = [
       {
         [...brands, ...brands].map((brand) => (
           <div class="brand-item">
-            <img src={brand.src.src} alt={`${brand.name} tyres`} />
+            <Image src={brand.src} alt={`${brand.name} tyres`} />
           </div>
         ))
       }

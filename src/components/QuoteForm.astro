@@ -1,0 +1,69 @@
+---
+import { SERVICES } from "../consts";
+---
+
+<div class="bg-light p-5 rounded m-3">
+    <p class="h3 mb-4 text-center">Get a Quote</p>
+    <form
+      class="row g-3"
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/thank-you"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="d-none">
+        <label>
+          Do not fill this out if you are human:
+          <input name="bot-field" />
+        </label>
+      </p>
+      <div class="col-12 col-lg-6">
+        <label class="visually-hidden" for="heroFullName">Full Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Full Name"
+          id="heroFullName"
+          name="fullName"
+          autocomplete="name"
+          required
+        />
+      </div>
+      <div class="col-12 col-lg-6">
+        <label class="visually-hidden" for="heroPhone">Phone Number</label>
+        <input
+          type="tel"
+          class="form-control"
+          placeholder="Phone Number"
+          id="heroPhone"
+          name="phone"
+          autocomplete="tel"
+          inputmode="tel"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <label class="visually-hidden" for="heroServiceType">Service Needed</label>
+        <select name="serviceType" id="heroServiceType" class="form-select" required>
+          <option value="">What service do you require?</option>
+          {
+            SERVICES.map((serv) => (
+              <option value={serv.title}>{serv.title}</option>
+            ))
+          }
+        </select>
+      </div>
+      <div class="col-12">
+        <label class="visually-hidden" for="heroMessage">Message</label>
+        <textarea name="message" id="heroMessage" class="form-control" rows="4" placeholder="Leave us a message"
+        ></textarea>
+      </div>
+      <div class="col-12 d-grid">
+        <button class="btn btn-primary text-light fw-bold"
+          ><i class="bi bi-send-fill me-2"></i>Request Quote</button
+        >
+      </div>
+    </form>
+  </div>
