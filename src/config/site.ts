@@ -1,7 +1,7 @@
 import type { DesignerCredit, TopbarItem } from "./types";
 
 /** Production site URL (used by Astro `site` for canonicals, sitemaps). */
-export const SITE_URL = "https://www.tyreemergency.com";
+export const SITE_URL = "https://www.tyreemergencyltd.co.uk";
 
 export const NAME = "Tyre Emergency Ltd";
 export const DESCRIPTION =
