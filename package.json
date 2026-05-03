@@ -8,17 +8,24 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "wrangler": "^4.87.0"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^13.3.0",
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource/rubik": "^5.2.8",
     "astro": "^6.1.9",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
