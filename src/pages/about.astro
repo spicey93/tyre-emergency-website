@@ -4,6 +4,7 @@ import {
   PAGES,
   NAME,
   PHONE,
+  PHONE_E164,
   EMAIL,
   AREAS,
   SERVICES,
@@ -98,7 +99,7 @@ const { title, description, content } = about;
               Need urgent help now, or want advice before booking? Call or email and we will guide you to the right service.
             </p>
             <div class="d-flex flex-column flex-sm-row gap-3">
-              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE}`}>
+              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE_E164}`}>
                 <i class="bi bi-telephone-fill me-2"></i>Call {PHONE}
               </a>
               <a class="btn btn-outline-primary btn-lg fw-bold" href={`mailto:${EMAIL}`}>

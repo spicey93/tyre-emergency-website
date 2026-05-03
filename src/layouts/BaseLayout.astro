@@ -3,6 +3,7 @@ import {
   NAME,
   DESCRIPTION,
   PHONE,
+  PHONE_E164,
   EMAIL,
   ADDRESS,
   CITY,
@@ -14,8 +15,8 @@ import {
   GOOGLE_REVIEWS,
   GTM_ID,
   OPENING_HOURS_SPECIFICATION,
+  SITE_URL,
 } from "../consts";
-import "@fontsource/rubik/300.css";
 import "@fontsource/rubik/400.css";
 import "@fontsource/rubik/500.css";
 import "@fontsource/rubik/600.css";
@@ -24,19 +25,21 @@ import "../styles/main.scss";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ElfsightCookie from "../components/ElfsightCookie.astro";
-import ElfsightReviews from "../components/ElfsightReviews.astro";
-const { title, description = DESCRIPTION } = Astro.props;
+import ElfsightPlatform from "../components/ElfsightPlatform.astro";
+
+const { title, description = DESCRIPTION, robots } = Astro.props;
 const pageTitle = `${title} | ${NAME}`;
 const canonicalUrl = Astro.url.href;
-const socialImage = new URL("/og-image.svg", Astro.url).href;
+const siteOrigin = Astro.site ?? new URL(SITE_URL);
+const socialImage = new URL("/og-image.png", siteOrigin).href;
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: NAME,
   description: DESCRIPTION,
   image: socialImage,
-  url: canonicalUrl,
-  telephone: PHONE,
+  url: SITE_URL,
+  telephone: PHONE_E164,
   email: EMAIL,
   address: {
     "@type": "PostalAddress",
@@ -62,23 +65,45 @@ const localBusinessSchema = {
 <!doctype html>
 <html lang="en">
   <head>
+    <meta name="theme-color" content="#ff3131" />
     {
       GTM_ID && (
         <>
-          <!-- Google Tag Manager -->
+          <!-- Google Tag Manager: deferred until after load to reduce main-thread contention. -->
           <script is:inline define:vars={{ gtmId: GTM_ID }}>
-            (function (w, d, s, l, i) {
-              w[l] = w[l] || [];
-              w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-              var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != "dataLayer" ? "&l=" + l : "";
-              j.async = true;
-              j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-              f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", gtmId);
+            function tyreDigitalLoadGtm() {
+              if (window.__tyreDigitalGtmLoaded) return;
+              window.__tyreDigitalGtmLoaded = true;
+              (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+                var f = d.getElementsByTagName(s)[0],
+                  j = d.createElement(s),
+                  dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+              })(window, document, "script", "dataLayer", gtmId);
+            }
+            function tyreDigitalScheduleGtm() {
+              var ric = window.requestIdleCallback;
+              if (typeof ric === "function") {
+                ric(
+                  function () {
+                    tyreDigitalLoadGtm();
+                  },
+                  { timeout: 4000 },
+                );
+              } else {
+                window.setTimeout(tyreDigitalLoadGtm, 1);
+              }
+            }
+            if (document.readyState === "complete") {
+              tyreDigitalScheduleGtm();
+            } else {
+              window.addEventListener("load", tyreDigitalScheduleGtm, { once: true });
+            }
           </script>
-          <!-- End Google Tag Manager -->
         </>
       )
     }
@@ -86,6 +111,7 @@ const localBusinessSchema = {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta property="og:type" content="website" />
@@ -93,6 +119,9 @@ const localBusinessSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
@@ -104,6 +133,9 @@ const localBusinessSchema = {
     <title>{pageTitle}</title>
   </head>
   <body>
+    <a
+      class="visually-hidden-focusable position-absolute top-0 start-0 z-3 m-2 px-3 py-2 bg-body text-body shadow rounded text-decoration-none"
+      href="#main-content">Skip to main content</a>
     {
       GTM_ID && (
         <>
@@ -120,6 +152,7 @@ const localBusinessSchema = {
       )
     }
     <Header />
+    <ElfsightPlatform />
     <slot />
     <ElfsightCookie />
     <Footer />

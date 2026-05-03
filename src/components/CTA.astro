@@ -1,12 +1,12 @@
 ---
-import { PHONE } from "../consts.ts";
+import { PHONE, PHONE_E164 } from "../consts.ts";
 ---
 
 <div class="bg-dark border-bottom border-primary text-light">
     <div class="container">
         <div class="row align-items-center justify-content-center py-4 text-light">
             <div class="col-12 col-lg-auto text-center text-lg-start mb-3 mb-lg-0">
-                <i class="bi bi-telephone-fill me-2 text-primary"></i> <span>Call us on <a href={`tel:${PHONE}`} class="link-light text-decoration-none fw-bold me-3">{PHONE}</a>
+                <i class="bi bi-telephone-fill me-2 text-primary"></i> <span>Call us on <a href={`tel:${PHONE_E164}`} class="link-light text-decoration-none fw-bold me-3">{PHONE}</a>
                 </span>
                 <span class="separator d-none d-lg-inline mx-3">|</span>
             </div>

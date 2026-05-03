@@ -11,25 +11,27 @@ const {
   heroSubheading,
   mainHeading,
   mainContent,
+  robots,
 } = Astro.props;
 const mainParagraph = Array.isArray(mainContent)
   ? mainContent.join(" ").trim()
   : String(mainContent ?? "").trim();
 ---
 
-<BaseLayout title={`${title}`} description={description}>
-  <Hero heroHeading={heroHeading} heroSubheading={heroSubheading} />
-  <ElfsightGallery />
-  <div class="container py-5">
-    <div class="row">
-      <main class="col-12 col-lg-8">
-        <h1>{mainHeading}</h1>
-        {mainParagraph && <p class="lead">{mainParagraph}</p>}
-      </main>
-      <div class="col-12 col-lg-4 mt-5 mt-lg-0">
-        <ElfsightReviews />
+<BaseLayout title={`${title}`} description={description} robots={robots}>
+  <main id="main-content">
+    <Hero heroHeading={heroHeading} heroSubheading={heroSubheading} />
+    <ElfsightGallery />
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <h2 class="h1">{mainHeading}</h2>
+          {mainParagraph && <p class="lead">{mainParagraph}</p>}
+        </div>
+        <aside class="col-12 col-lg-4 mt-5 mt-lg-0">
+          <ElfsightReviews />
+        </aside>
       </div>
     </div>
-  </div>
-
+  </main>
 </BaseLayout>

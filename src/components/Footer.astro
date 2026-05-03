@@ -3,6 +3,7 @@ import {
   NAME,
   DESCRIPTION,
   PHONE,
+  PHONE_E164,
   EMAIL,
   VAT_NO,
   COMPANY_NO,
@@ -60,7 +61,7 @@ import CTA from "./CTA.astro";
         <h6 class="mb-3">Contact</h6>
         <p class="small mb-0">{ADDRESS}, {CITY}, {COUNTY} {POSTCODE}</p>
         <div class="small">
-          <a href={`tel:${PHONE}`} class="link-light text-decoration-none">
+          <a href={`tel:${PHONE_E164}`} class="link-light text-decoration-none">
             {PHONE}
           </a><br />
           <a href={`mailto:${EMAIL}`} class="link-light text-decoration-none">

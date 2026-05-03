@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { NAME, PHONE, PHONE_E164 } from "../consts";
+const title = "Page not found";
+const description = `That page does not exist. Call ${NAME} for 24/7 emergency tyre help in Nottinghamshire.`;
+---
+
+<BaseLayout {title} {description} robots="noindex, follow">
+  <main id="main-content" class="container py-5 text-center">
+    <p class="text-uppercase text-secondary small mb-2">404</p>
+    <h1 class="display-6 fw-bold mb-3">{title}</h1>
+    <p class="lead mx-auto mb-4" style="max-width: 32rem">
+      The link may be broken or the page may have moved. If you need urgent tyre help, call us now or head back to the home page.
+    </p>
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-5">
+      <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE_E164}`}>
+        <i class="bi bi-telephone-fill me-2"></i>Call {PHONE}
+      </a>
+      <a class="btn btn-outline-primary btn-lg fw-bold" href="/">Back to home</a>
+      <a class="btn btn-outline-primary btn-lg fw-bold" href="/contact">Contact</a>
+    </div>
+    <p class="small text-secondary mb-0">
+      Popular: <a href="/services/emergency-tyre-replacement">Emergency tyres</a>
+      · <a href="/contact#request-quote">Request a quote</a>
+    </p>
+  </main>
+</BaseLayout>

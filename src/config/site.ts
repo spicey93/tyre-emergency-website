@@ -7,6 +7,8 @@ export const NAME = "Tyre Emergency Ltd";
 export const DESCRIPTION =
   "Tyre Emergency Ltd delivers 24/7 emergency tyre replacement, mobile fitting, repair and locking wheel nut removal with a 30-minute average ETA across Nottinghamshire.";
 export const PHONE = "01623 325 123";
+/** E.164 for `tel:` links and structured data (display `PHONE` in UI). */
+export const PHONE_E164 = "+441623325123";
 export const EMAIL = "contact@tyreemergency.com";
 export const ADDRESS = "Bilsthorpe";
 export const CITY = "Newark";

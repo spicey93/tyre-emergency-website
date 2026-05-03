@@ -1,5 +1,5 @@
 ---
-import { NAME, PHONE, SERVICES, AREAS } from "../consts.ts";
+import { NAME, PHONE, PHONE_E164, SERVICES, AREAS } from "../consts.ts";
 import { Image } from "astro:assets";
 import companyLogo from "../assets/logo.png";
 ---
@@ -32,7 +32,9 @@ import companyLogo from "../assets/logo.png";
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
           <ul class="dropdown-menu">
             {SERVICES.map((service) => (
-              <li><a href=`/services/${service.link}` class="dropdown-item">{service.title}</a></li>
+              <li>
+                <a href={`/services/${service.link}`} class="dropdown-item">{service.title}</a>
+              </li>
             ))}
           </ul>
         </li>
@@ -40,7 +42,9 @@ import companyLogo from "../assets/logo.png";
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Areas</a>
           <ul class="dropdown-menu">
             {AREAS.map((area) => (
-              <li><a href=`/areas/${area.link}` class="dropdown-item">{area.name}</a></li>
+              <li>
+                <a href={`/areas/${area.link}`} class="dropdown-item">{area.name}</a>
+              </li>
             ))}
           </ul>
         </li>
@@ -49,7 +53,9 @@ import companyLogo from "../assets/logo.png";
         </li>
       </ul>
     </div>
-    <a href={`tel:${PHONE}`} class="btn btn-primary text-light fw-bold d-none d-lg-block"><i class="bi bi-telephone-fill me-2"></i>{PHONE}</a>
+    <a href={`tel:${PHONE_E164}`} class="btn btn-primary text-light fw-bold d-none d-lg-block">
+      <i class="bi bi-telephone-fill me-2"></i>{PHONE}
+    </a>
   </div>
 </nav>
 

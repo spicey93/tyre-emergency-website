@@ -1,10 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { NAME, EMAIL, PHONE, ADDRESS, CITY, COUNTY, POSTCODE, COMPANY_NO } from "../consts";
+import {
+  NAME,
+  EMAIL,
+  PHONE,
+  PHONE_E164,
+  ADDRESS,
+  CITY,
+  COUNTY,
+  POSTCODE,
+  COMPANY_NO,
+} from "../consts";
 ---
 
 <BaseLayout title="Terms and Conditions">
-  <main class="container my-5">
+  <main id="main-content" class="container my-5">
     <h1>Terms and Conditions</h1>
     <p class="lead">
       These terms and conditions govern your use of this website and any booking or enquiry you make with {NAME}.
@@ -20,7 +30,7 @@ import { NAME, EMAIL, PHONE, ADDRESS, CITY, COUNTY, POSTCODE, COMPANY_NO } from 
         Registered service address: {ADDRESS}, {CITY}, {COUNTY} {POSTCODE}.
       </p>
       <p>
-        Contact: <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or <a href={`tel:${PHONE}`}>{PHONE}</a>.
+        Contact: <a href={`mailto:${EMAIL}`}>{EMAIL}</a> or <a href={`tel:${PHONE_E164}`}>{PHONE}</a>.
       </p>
     </section>
 

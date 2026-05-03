@@ -1,6 +1,15 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { PAGES, PHONE, EMAIL, AREAS, SERVICES, GOOGLE_RATING, GOOGLE_REVIEWS } from "../consts";
+import {
+  PAGES,
+  PHONE,
+  PHONE_E164,
+  EMAIL,
+  AREAS,
+  SERVICES,
+  GOOGLE_RATING,
+  GOOGLE_REVIEWS,
+} from "../consts";
 const { contact } = PAGES;
 const { title, description, content } = contact;
 ---
@@ -16,7 +25,7 @@ const { title, description, content } = contact;
               Call now for emergency tyre rescue or send us your details and we will call you back quickly.
             </p>
             <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
-              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE}`}>
+              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE_E164}`}>
                 <i class="bi bi-telephone-fill me-2"></i>Call {PHONE}
               </a>
               <a class="btn btn-outline-primary btn-lg fw-bold" href={`mailto:${EMAIL}`}>
@@ -39,7 +48,7 @@ const { title, description, content } = contact;
             <ul class="list-unstyled mb-4">
               <li class="mb-2">
                 <i class="bi bi-telephone-fill me-2 text-primary"></i>
-                <a href={`tel:${PHONE}`} class="text-decoration-none">{PHONE}</a>
+                <a href={`tel:${PHONE_E164}`} class="text-decoration-none">{PHONE}</a>
               </li>
               <li class="mb-2">
                 <i class="bi bi-envelope-fill me-2 text-primary"></i>
@@ -58,7 +67,7 @@ const { title, description, content } = contact;
           </div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12" id="request-quote">
         <div class="card border">
           <div class="card-body p-4 p-lg-5">
             <h2 class="h4 mb-3">Request a Quote</h2>

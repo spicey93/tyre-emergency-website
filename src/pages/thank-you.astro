@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { PHONE, EMAIL } from "../consts";
+import { PHONE, PHONE_E164, EMAIL } from "../consts";
 ---
 
 <MainLayout
@@ -21,7 +21,7 @@ import { PHONE, EMAIL } from "../consts";
               Need urgent help right now? Call us for immediate roadside support.
             </p>
             <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
-              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE}`}>
+              <a class="btn btn-primary btn-lg fw-bold text-light" href={`tel:${PHONE_E164}`}>
                 <i class="bi bi-telephone-fill me-2"></i>Call {PHONE}
               </a>
               <a class="btn btn-outline-primary btn-lg fw-bold" href={`mailto:${EMAIL}`}>
